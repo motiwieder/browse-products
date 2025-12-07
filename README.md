@@ -17,7 +17,7 @@ A performance-optimized, SEO-friendly product catalog built with Next.js App Rou
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/motiwieder/product-catalog.git
+   git clone https://github.com/motiwieder/browse-products.git
    cd browse-products
    ```
 
