@@ -83,54 +83,6 @@ browse-products/
         └── searchUtils.ts        # Search utility functions
 ```
 
-## Custom Hooks
-
-### `useUrlNavigation`
-
-Base hook for URL query parameter manipulation with React transitions.
-
-```tsx
-const { navigate, navigateToBase, isPending, searchParams } = useUrlNavigation({
-  baseRoute: "/products",
-  preserveParams: true,
-});
-
-// Update parameters
-navigate({ search: "laptop", category: "electronics" });
-
-// Remove parameters
-navigate({}, ["search", "category"]);
-
-// Navigate to base route
-navigateToBase();
-```
-
-### `useSearch`
-
-Debounced search input with automatic URL synchronization.
-
-```tsx
-const { searchValue, setSearchValue, clearSearch, isPending } = useSearch({
-  baseRoute: "/products",
-  queryKey: "search",
-  debounceMs: 400,
-  maxLength: 100,
-});
-```
-
-### `useFilters`
-
-Multi-filter management with validation against allowed values.
-
-```tsx
-const { filterValues, setFilter, clearAllFilters, isPending } = useFilters({
-  baseRoute: "/products",
-  filters: [
-    { key: "category", allowedValues: ["electronics", "clothing"] },
-    { key: "brand", allowedValues: ["apple", "samsung"] },
-  ],
-});
-```
 
 ## Rendering Strategy Justification
 
@@ -209,9 +161,57 @@ export const DEFAULT_DEBOUNCE_MS = 400;        // Search debounce delay
 export const DEFAULT_MAX_SEARCH_LENGTH = 100;  // Max search input length
 ```
 
-## API
 
-This project uses [FakeStoreAPI](https://fakestoreapi.com/) for product data:
+## Custom Hooks
+
+### `useUrlNavigation`
+
+Base hook for URL query parameter manipulation with React transitions.
+
+```tsx
+const { navigate, navigateToBase, isPending, searchParams } = useUrlNavigation({
+  baseRoute: "/products",
+  preserveParams: true,
+});
+
+// Update parameters
+navigate({ search: "laptop", category: "electronics" });
+
+// Remove parameters
+navigate({}, ["search", "category"]);
+
+// Navigate to base route
+navigateToBase();
+```
+
+### `useSearch`
+
+Debounced search input with automatic URL synchronization.
+
+```tsx
+const { searchValue, setSearchValue, clearSearch, isPending } = useSearch({
+  baseRoute: "/products",
+  queryKey: "search",
+  debounceMs: 400,
+  maxLength: 100,
+});
+```
+
+### `useFilters`
+
+Multi-filter management with validation against allowed values.
+
+```tsx
+const { filterValues, setFilter, clearAllFilters, isPending } = useFilters({
+  baseRoute: "/products",
+  filters: [
+    { key: "category", allowedValues: ["electronics", "clothing"] },
+    { key: "brand", allowedValues: ["apple", "samsung"] },
+  ],
+});
+```
+
+## API
 
 - `GET /products` - All products
 - `GET /products/:id` - Single product
