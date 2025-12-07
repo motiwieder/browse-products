@@ -1,4 +1,4 @@
-import { useCallback } from "react";
+import { useCallback, useMemo } from "react";
 import { useUrlNavigation } from "./useUrlNavigation";
 
 export interface FilterConfig {
@@ -53,13 +53,17 @@ export function useFilters({
       baseRoute,
       preserveParams,
     });
-
   // Create lookup map for O(1) filter config access
-  const filterConfigMap = filters.reduce((acc, filter) => {
-    acc[filter.key] = filter;
-    return acc;
-  }, {} as Record<string, FilterConfig>);
 
+  const filterConfigMap = useMemo(
+    () =>
+      filters.reduce((acc, filter) => {
+        acc[filter.key] = filter;
+        return acc;
+      }, {} as Record<string, FilterConfig>),
+    [filters]
+  );
+ 
   /**
    * Extract and validate filter values from URL
    * Only includes values that exist in allowedValues
