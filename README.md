@@ -17,7 +17,7 @@ A performance-optimized, SEO-friendly product catalog built with Next.js App Rou
 1. Clone the repository:
 
    ```bash
-   git clone <repository-url>
+   git clone <https://github.com/motiwieder/product-catalog.git>
    cd browse-products
    ```
 
@@ -26,14 +26,15 @@ A performance-optimized, SEO-friendly product catalog built with Next.js App Rou
    ```bash
    npm install
    ```
+3. Rename `.env.example` to `.env.local` and add your actual API key or credentials.
 
-3. Run the development server:
+4. Run the development server:
 
    ```bash
    npm run dev
    ```
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+5. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## Build for Production
 
