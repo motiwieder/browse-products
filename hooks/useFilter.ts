@@ -1,5 +1,3 @@
-// hooks/useFilters.ts
-
 import { useCallback } from "react";
 import { useUrlNavigation } from "./useUrlNavigation";
 
