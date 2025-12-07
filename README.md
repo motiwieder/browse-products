@@ -26,7 +26,12 @@ A performance-optimized, SEO-friendly product catalog built with Next.js App Rou
    ```bash
    npm install
    ```
-3. Rename `.env.local.example` to `.env.local` and add your actual API key or credentials.
+
+3. Create a `.env.local` file in the root directory with the following content:
+
+   ```
+   API_BASE_URL=https://fakestoreapi.com
+   ```
 
 4. Run the development server:
 
@@ -49,40 +54,56 @@ npm start
 browse-products/
 ├── app/
 │   ├── page.tsx                  # Home page
+│   ├── page.module.css           # Home page styles
 │   ├── layout.tsx                # Root layout
 │   ├── globals.css               # Global styles
 │   ├── not-found.tsx             # 404 page
+│   ├── not-found.module.css      # 404 page styles
+│   ├── favicon.ico               # Site favicon
 │   └── products/
 │       ├── page.tsx              # Product catalog
+│       ├── page.module.css       # Catalog styles
 │       ├── loading.tsx           # Loading skeleton
+│       ├── loading.module.css    # Loading skeleton styles
 │       ├── error.tsx             # Error boundary
+│       ├── error.module.css      # Error boundary styles
 │       └── [id]/
 │           ├── page.tsx          # Single product page
-│           └── not-found.tsx     # Product not found page
+│           ├── not-found.tsx     # Product not found page
+│           └── not-found.module.css # Product not found styles
 ├── components/
 │   ├── Header.tsx                # Navigation header
+│   ├── Header.module.css         # Header styles
 │   ├── ProductCard.tsx           # Product grid card
+│   ├── ProductCard.module.css    # Product card styles
 │   ├── ProductDetails.tsx        # Single product display
+│   ├── ProductDetails.module.css # Product details styles
 │   ├── SearchFilterForm.tsx      # Search/filter client component
+│   ├── SearchFilterForm.module.css # Search form styles
 │   ├── StarRating.tsx            # Star rating display
+│   ├── StarRating.module.css     # Star rating styles
 │   └── ui/
 │       ├── index.ts              # UI components barrel export
 │       ├── Button.tsx            # Reusable button component
+│       ├── Button.module.css     # Button styles
 │       ├── TextInput.tsx         # Text input component
+│       ├── TextInput.module.css  # Text input styles
 │       ├── Select.tsx            # Select dropdown component
-│       └── LoadingOverlay.tsx    # Loading overlay component
+│       ├── Select.module.css     # Select styles
+│       ├── LoadingOverlay.tsx    # Loading overlay component
+│       └── LoadingOverlay.module.css # Loading overlay styles
 ├── hooks/
 │   ├── useUrlNavigation.ts       # URL query parameter navigation
 │   ├── useSearch.ts              # Debounced search with URL sync
 │   └── useFilter.ts              # Multi-filter management
-└── lib/
-    ├── api.ts                    # API fetch utilities
-    ├── config.ts                 # Revalidation configuration
-    ├── types.ts                  # TypeScript interfaces
-    └── utils/
-        └── searchUtils.ts        # Search utility functions
+├── lib/
+│   ├── api.ts                    # API fetch utilities
+│   ├── config.ts                 # Revalidation configuration
+│   ├── types.ts                  # TypeScript interfaces
+│   └── utils/
+│       └── searchUtils.ts        # Search utility functions
+└── public/                       # Static assets
 ```
-
 
 ## Rendering Strategy Justification
 
@@ -155,12 +176,11 @@ This approach ensures:
 Revalidation times and shared constants are centralized in `lib/config.ts` for easy maintenance:
 
 ```typescript
-export const CATALOG_REVALIDATE = 3600;        // 1 hour
-export const PRODUCT_REVALIDATE = 86400;       // 24 hours
-export const DEFAULT_DEBOUNCE_MS = 400;        // Search debounce delay
-export const DEFAULT_MAX_SEARCH_LENGTH = 100;  // Max search input length
+export const CATALOG_REVALIDATE = 3600; // 1 hour
+export const PRODUCT_REVALIDATE = 86400; // 24 hours
+export const DEFAULT_DEBOUNCE_MS = 400; // Search debounce delay
+export const DEFAULT_MAX_SEARCH_LENGTH = 100; // Max search input length
 ```
-
 
 ## Custom Hooks
 
