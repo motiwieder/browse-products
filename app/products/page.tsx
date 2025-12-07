@@ -1,4 +1,3 @@
-import { Suspense } from "react";
 import { Metadata } from "next";
 import Header from "@/components/Header";
 import ProductCard from "@/components/ProductCard";
@@ -55,9 +54,7 @@ export default async function ProductsPage({
         <div className={styles.container}>
           <h1 className={styles.title}>Products</h1>
 
-          <Suspense fallback={<div>Loading filters...</div>}>
-            <SearchFilterForm categories={categories} />
-          </Suspense>
+          <SearchFilterForm categories={categories} />
 
           {products.length === 0 ? (
             <div className={styles.empty}>
