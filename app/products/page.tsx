@@ -4,7 +4,6 @@ import Header from "@/components/Header";
 import ProductCard from "@/components/ProductCard";
 import SearchFilterForm from "@/components/SearchFilterForm";
 import { fetchAllProducts, fetchCategories, searchProducts } from "@/lib/api";
-import { CATALOG_REVALIDATE } from "@/lib/config";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -17,7 +16,7 @@ export const metadata: Metadata = {
  * When no searchParams are present, page is statically generated
  * and revalidated every hour (3600 seconds).
  */
-export const revalidate = CATALOG_REVALIDATE;
+export const revalidate = 3600;
 
 interface ProductsPageProps {
   searchParams: Promise<{ search?: string; category?: string }>;

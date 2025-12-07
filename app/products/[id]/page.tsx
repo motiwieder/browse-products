@@ -3,7 +3,6 @@ import { notFound } from "next/navigation";
 import Header from "@/components/Header";
 import ProductDetails from "@/components/ProductDetails";
 import { fetchProductById, fetchAllProducts } from "@/lib/api";
-import { PRODUCT_REVALIDATE } from "@/lib/config";
 
 const META_DESCRIPTION_MAX_LENGTH = 160;
 
@@ -11,7 +10,7 @@ const META_DESCRIPTION_MAX_LENGTH = 160;
  * Revalidation configuration for SSG with ISR.
  * Individual product pages are revalidated every 24 hours (86400 seconds).
  */
-export const revalidate = PRODUCT_REVALIDATE;
+export const revalidate = 86400;
 
 interface ProductPageProps {
   params: Promise<{ id: string }>;
