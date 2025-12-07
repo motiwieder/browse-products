@@ -1,0 +1,71 @@
+/* components/ui/Select.module.css */
+.container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.select {
+  padding: 0.75rem 1rem;
+  padding-right: 2.5rem;
+  border: 1px solid var(--color-gray-200, #e5e7eb);
+  border-radius: 8px;
+  font-size: 1rem;
+  background: var(--color-background, #ffffff);
+  color: var(--color-foreground, #111827);
+  min-width: 180px;
+  transition: border-color 0.2s;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236b7280' d='M2.5 4.5L6 8l3.5-3.5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+}
+
+.select:focus {
+  outline: none;
+  border-color: var(--color-primary, #667eea);
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+}
+
+.select:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background-color: var(--color-gray-50, #f9fafb);
+}
+
+.spinnerWrapper {
+  position: absolute;
+  right: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.spinner {
+  display: block;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #d1d5db;
+  border-top-color: #667eea;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    width: 100%;
+  }
+
+  .select {
+    width: 100%;
+  }
+}
+

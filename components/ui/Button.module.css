@@ -1,0 +1,79 @@
+/* components/ui/Button.module.css */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s, color 0.2s, border-color 0.2s, opacity 0.2s;
+}
+
+.button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Primary variant */
+.primary {
+  background: var(--color-primary, #667eea);
+  border: 1px solid var(--color-primary, #667eea);
+  color: #ffffff;
+}
+
+.primary:hover:not(:disabled) {
+  background: var(--color-primary-dark, #5a67d8);
+  border-color: var(--color-primary-dark, #5a67d8);
+}
+
+/* Secondary variant */
+.secondary {
+  background: var(--color-background, #ffffff);
+  border: 1px solid var(--color-gray-300, #d1d5db);
+  color: var(--color-foreground, #111827);
+}
+
+.secondary:hover:not(:disabled) {
+  background: var(--color-gray-100, #f3f4f6);
+  border-color: var(--color-gray-400, #9ca3af);
+}
+
+/* Ghost variant */
+.ghost {
+  background: transparent;
+  border: 1px solid #9ca3af;
+  color: #6b7280;
+}
+
+.ghost:hover:not(:disabled) {
+  background: #e5e7eb;
+  color: #111827;
+  border-color: #6b7280;
+}
+
+/* Loading spinner */
+.spinner {
+  display: block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  opacity: 0.7;
+}
+
+.loadingText {
+  opacity: 0.8;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+

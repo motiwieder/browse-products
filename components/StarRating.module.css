@@ -1,0 +1,36 @@
+.stars {
+  display: inline-flex;
+}
+
+/* Size variants */
+.sm {
+  font-size: 0.875rem;
+}
+
+.md {
+  font-size: 1.25rem;
+}
+
+.lg {
+  font-size: 1.75rem;
+}
+
+.starWrapper {
+  position: relative;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  line-height: 1;
+}
+
+.starEmpty {
+  color: #d1d5db;
+}
+
+.starFilled {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #f59e0b;
+  overflow: hidden;
+}
