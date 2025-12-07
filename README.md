@@ -26,7 +26,7 @@ A performance-optimized, SEO-friendly product catalog built with Next.js App Rou
    ```bash
    npm install
    ```
-3. Rename `.env.example` to `.env.local` and add your actual API key or credentials.
+3. Rename `.env.local.example` to `.env.local` and add your actual API key or credentials.
 
 4. Run the development server:
 
