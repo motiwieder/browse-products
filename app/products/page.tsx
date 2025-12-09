@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-import Header from "@/components/Header";
 import ProductCard from "@/components/ProductCard";
 import SearchFilterForm from "@/components/SearchFilterForm";
 import { fetchAllProducts, fetchCategories, searchProducts } from "@/lib/api";
@@ -48,9 +47,7 @@ export default async function ProductsPage({
       : await fetchAllProducts();
 
   return (
-    <>
-      <Header />
-      <main className={styles.main}>
+    <main className={styles.main}>
         <div className={styles.container}>
           <h1 className={styles.title}>Products</h1>
 
@@ -68,7 +65,6 @@ export default async function ProductsPage({
             </div>
           )}
         </div>
-      </main>
-    </>
+    </main>
   );
 }
